@@ -18,9 +18,9 @@ function updateTime() {
     
     for (let box of boxesJP) {
         let randomColor = Math.floor(Math.random() * colorsJP.length);
-        let randomTop = 10 + Math.random() * (75 - 10);
-        let randomLeft = 5 + Math.random() * (80 - 5);
-        let randomWidth = 6 + Math.random() * (15 - 6);
+        let randomTop = 6 + Math.random() * (68 - 6);
+        let randomLeft = 5 + Math.random() * (87 - 5);
+        let randomWidth = 5 + Math.random() * (10 - 5);
         let randomZIndex = Math.random() * 1;
         
         box.style.backgroundColor = colorsJP[randomColor];
@@ -60,11 +60,13 @@ boxesJP.forEach(box => {
 
         images.forEach(img => {
             img.style.opacity = "1"; // Make <img> visible
+            img.style.borderRadius = "0";
+            img.style.transition = "0.8s";
         });
 
         numbers.forEach(number => {
             number.style.opacity = "1"; // Make numbers visible
-            number.style.fontSize = "0.55vw"; 
+            number.style.fontSize = "0.45vw"; 
             number.style.padding = "0";
             number.style.transition = "0.8s";
         });
@@ -76,8 +78,10 @@ boxesJP.forEach(box => {
                 otherNumbers.forEach(otherNumber => {
                     otherNumber.style.opacity = "0"; // Hide numbers in other boxes
                 });
+                otherBox.style.opacity = "0.5";
             }
         });
+        
     });
 
     box.addEventListener("mouseout", () => {
@@ -100,6 +104,7 @@ boxesJP.forEach(box => {
 
         images.forEach(img => {
             img.style.opacity = "0"; // Hide <img>
+            img.style.borderRadius = "";
         });
 
         numbers.forEach(number => {
@@ -116,6 +121,7 @@ boxesJP.forEach(box => {
                 otherNumbers.forEach(otherNumber => {
                     otherNumber.style.opacity = "1"; // Restore numbers in other boxes
                 });
+                otherBox.style.opacity = "1";
             }
         });
     });
