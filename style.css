@@ -1,0 +1,99 @@
+@font-face {
+    font-family: Diatype;
+    src: url(typefaces/ABCDiatypeVariable-Trial.ttf);
+}
+
+@font-face {
+    font-family: DiatypeItalic;
+    src: url(typefaces/ABCDiatype-RegularItalic-Trial.otf);
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.head {
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-content: flex-end;
+    padding: 1vw;
+}
+
+h1 {
+    font-family: "Diatype";
+    font-size: 8vh;
+    line-height: 8vh;
+    /* padding: 0 0 0 1vw ; */
+}
+
+.nav {
+    position: absolute;
+    left: 60vw;
+    height: 8vh;
+    display: flex;
+    flex-direction: row;
+    gap: 0 2vw;
+    align-items: flex-end;
+    font-family: "Diatype";
+
+}
+
+.container {
+    /* background-color: blue; */
+    width: 90vw;
+    height: calc(100vh - 10vw);
+    margin: 5vw 5vw;
+}
+
+.img-box {
+    /* height: calc(7vw + (0.8vw * 3) + 4px + 10px); */
+    height: fit-content;
+    /* background-color: black; */
+    position: absolute;
+    padding: 5px;
+}
+
+img {
+    /* height: 7vw; */
+    width: 5vw;
+    opacity: 0;
+    transition: 2s;
+    padding-top: 4px;
+}
+
+.img-box p {
+    font-family: "Diatype";
+    font-size: 0.55vw;
+    line-height: 0.75vw;
+    opacity: 0;
+}
+
+.img-box span {
+    font-family: "DiatypeItalic";
+}
+
+.img-box:hover {
+    background-color: transparent;
+    /* transition: 5s; */
+    transform: scale(1.6);
+}
+
+.img-box img:hover {
+    opacity: 1;
+    /* transition: 1s; */
+
+}
+
+.img-box p,
+.img-box img {
+    opacity: 0;          /* Start with content hidden */
+    transition: opacity 0.3s ease; /* Smooth opacity change */
+}
+
+.number p {
+    font-size: 1vw;
+    opacity: 1;
+    padding: 5px 3px;
+}
