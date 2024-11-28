@@ -13,35 +13,56 @@ function stopInterval() {
 // Update time function
 function updateTime() {
     let boxesJP = document.querySelectorAll(".img-box");
-    let colorsJP = ["#00ad77", "#7ee79c", "#adebd7"];
+    let colors1 = ["#00ad77", "#7ee79c", "#adebd7"];
+    let colors2 = ["#2d9ebb", "#c0f1f4", "#81defc"];
+    let colors3 = ["#c881b3", "#ffbbde", "#f9a6c5"];
+    let colors4 = ["#9e51aa", "#9e66d7", "#c2a6da"];
     let boxImgs = document.querySelectorAll("img");
+    let letters = document.querySelectorAll(".heading div");
+    let heading = document.querySelector(".heading");
+    let colorGroups = [colors1, colors2, colors3, colors4];
+    let selectedGroup = colorGroups[Math.floor(Math.random() * colorGroups.length)];
     
     for (let box of boxesJP) {
-        let randomColor = Math.floor(Math.random() * colorsJP.length);
+        let randomColor = selectedGroup[Math.floor(Math.random() * selectedGroup.length)];
+
         let randomTop = 6 + Math.random() * (68 - 6);
         let randomLeft = 5 + Math.random() * (87 - 5);
         let randomWidth = 5 + Math.random() * (10 - 5);
         let randomZIndex = Math.random() * 1;
-        
-        box.style.backgroundColor = colorsJP[randomColor];
+    
+        box.style.backgroundColor = randomColor;
         box.style.transition = "1.5s";
         box.style.top = randomTop + "vh";
         box.style.left = randomLeft + "vw";
         box.style.width = randomWidth + "vw";
         box.style.width = randomZIndex;
-        
+    
         // Adjust the width for all images
         for (let img of boxImgs) {
             img.style.width = `calc(${randomWidth}vw - 10px)`;
         }
     }
-    
+
+    let randomTop = -8 + Math.random() * (82 - (-8));
+    heading.style.top = randomTop + "vh";
+    heading.style.transition = "2s";
+
+    for (let letter of letters) {
+        let randomWeight = 200 + Math.random() * (700 - 200); 
+        // let randomSlant = -15 + Math.random() * 15;
+        let randomSize = 5 + Math.random() * (10 - 5);
+
+        letter.style.fontVariationSettings = "'wght'" + randomWeight;
+        letter.style.fontSize = randomSize + "vw";
+        letter.style.transition = "2s";
+    }
 }
 
 // Add event listeners to each box
 let boxesJP = document.querySelectorAll(".img-box");
 let boxImgs = document.querySelectorAll("img");
-
+let letters = document.querySelectorAll(".heading div");
 
 boxesJP.forEach(box => {
     box.addEventListener("mouseover", () => {
@@ -71,6 +92,11 @@ boxesJP.forEach(box => {
             number.style.transition = "0.8s";
         });
 
+        letters.forEach(letter => {
+            letter.style.opacity = "0";
+            letter.style.transition = "0.8s";
+        })
+
         // Set opacity to 0 for numbers in all other boxes
         boxesJP.forEach(otherBox => {
             if (otherBox !== box) { // Skip the hovered box
@@ -79,6 +105,7 @@ boxesJP.forEach(box => {
                     otherNumber.style.opacity = "0"; // Hide numbers in other boxes
                 });
                 otherBox.style.opacity = "0.5";
+                otherBox.style.transition = "0.8s";
             }
         });
         
@@ -88,10 +115,10 @@ boxesJP.forEach(box => {
         startInterval(); // Restart interval on mouse out
     
         // Restore random color for the box
-        let colorsJP = ["#00ad77", "#7ee79c", "#adebd7"];
-        let randomColor = Math.floor(Math.random() * colorsJP.length);
-        box.style.backgroundColor = colorsJP[randomColor];
-        box.style.zIndex = ""; // Reset zIndex after mouse out
+        // let colorsJP = ["#00ad77", "#7ee79c", "#adebd7"];
+        // let randomColor = Math.floor(Math.random() * colorsJP.length);
+        // box.style.backgroundColor = colorsJP[randomColor];
+        box.style.zIndex = ""; 
 
         // Reset opacity for content in the hovered box
         let paragraphs = box.querySelectorAll("p");
@@ -114,6 +141,12 @@ boxesJP.forEach(box => {
             number.style.transition = "0.8s";
         });
 
+        letters.forEach(letter => {
+            letter.style.color = "black";
+            letter.style.opacity = "1";
+            letter.style.transition = "0.8s";
+        })
+
         // Restore opacity for numbers in all other boxes
         boxesJP.forEach(otherBox => {
             if (otherBox !== box) { // Skip the hovered box
@@ -122,6 +155,7 @@ boxesJP.forEach(box => {
                     otherNumber.style.opacity = "1"; // Restore numbers in other boxes
                 });
                 otherBox.style.opacity = "1";
+                otherBox.style.transition = "0.8s";
             }
         });
     });

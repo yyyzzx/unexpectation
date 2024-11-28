@@ -8,40 +8,48 @@
     src: url(typefaces/ABCDiatype-RegularItalic-Trial.otf);
 }
 
+@font-face {
+    font-family: DiatypeMono;
+    src: url(typefaces/ABCDiatypeMonoVariable-Trial.ttf);
+}
+
 body {
     overflow-x: hidden;
     overflow-y: hidden;
+    background-color: ghostwhite;
 }
 
-.head {
+.heading {
+    position: absolute;
+    top: 0;
+    width: 100vw;
     height: fit-content;
     display: flex;
     flex-direction: row;
-    align-content: flex-end;
-    padding: 1vw;
+    align-items: center;
+    justify-content: flex-start;
+        /* background-color: blueviolet; */
 }
 
-h1 {
-    font-family: "Diatype";
-    font-size: 8vh;
-    line-height: 8vh;
-    /* padding: 0 0 0 1vw ; */
-}
-
-.nav {
-    position: absolute;
-    left: 60vw;
-    height: 8vh;
+.heading div {
+    position: relative;
+    font-family: "DiatypeMono";
+    font-size: 10vw;
+    width: 10vw;
+    height: fit-content;
     display: flex;
-    flex-direction: row;
-    gap: 0 2vw;
-    align-items: flex-end;
-    font-family: "Diatype";
-
+    align-items: center;
+    justify-content: center;
+    transition: 2s;
+    transition: 2s;
 }
+
+.heading div:hover {
+    cursor: pointer;
+}
+
 
 .container {
-    /* background-color: blue; */
     width: 90vw;
     height: calc(100vh - 10vw);
     margin: 5vw 5vw;
@@ -77,7 +85,7 @@ img {
 
 .img-box:hover {
     background-color: transparent;
-    /* transition: 5s; */
+    transition: 0.8s;
     transform: scale(1.9);
     border-radius: 100px;
 }
