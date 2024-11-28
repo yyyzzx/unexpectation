@@ -30,8 +30,8 @@ function updateTime() {
         
 
         let randomTop = 6 + Math.random() * (66 - 6);
-        let randomLeft = 5 + Math.random() * (87 - 5);
-        let randomWidth = 6 + Math.random() * (11 - 6);
+        let randomLeft = 5 + Math.random() * (85 - 8);
+        let randomWidth = 6 + Math.random() * (12 - 6);
         let randomZIndex = Math.random() * 1;
     
         box.style.backgroundColor = randomColor;
