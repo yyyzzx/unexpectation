@@ -28,7 +28,6 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-        /* background-color: blueviolet; */
 }
 
 .heading div {
@@ -56,9 +55,7 @@ body {
 }
 
 .img-box {
-    /* height: calc(7vw + (0.8vw * 3) + 4px + 10px); */
     height: fit-content;
-    /* background-color: black; */
     position: absolute;
     padding: 5px;
     border-radius: 2px;
@@ -92,14 +89,12 @@ img {
 
 .img-box img:hover {
     opacity: 1;
-    /* transition: 1s; */
-
 }
 
 .img-box p,
 .img-box img {
-    opacity: 0;          /* Start with content hidden */
-    transition: opacity 0.3s ease; /* Smooth opacity change */
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .number p {
