@@ -24,7 +24,10 @@ function updateTime() {
     let selectedGroup = colorGroups[Math.floor(Math.random() * colorGroups.length)];
     
     for (let box of boxesJP) {
+
         let randomColor = selectedGroup[Math.floor(Math.random() * selectedGroup.length)];
+        box.dataset.originalColor = randomColor; // Store the color for later use
+        
 
         let randomTop = 6 + Math.random() * (68 - 6);
         let randomLeft = 5 + Math.random() * (87 - 5);
@@ -65,6 +68,10 @@ let boxImgs = document.querySelectorAll("img");
 let letters = document.querySelectorAll(".heading div");
 
 boxesJP.forEach(box => {
+    // Store the original background color using a data attribute
+    let originalColor = box.style.backgroundColor || getComputedStyle(box).backgroundColor;
+    box.dataset.originalColor = originalColor; // Save it to a data attribute
+
     box.addEventListener("mouseover", () => {
         stopInterval(); // Stop interval on hover
         box.style.backgroundColor = "transparent"; // Make background color transparent
@@ -95,7 +102,7 @@ boxesJP.forEach(box => {
         letters.forEach(letter => {
             letter.style.opacity = "0";
             letter.style.transition = "0.8s";
-        })
+        });
 
         // Set opacity to 0 for numbers in all other boxes
         boxesJP.forEach(otherBox => {
@@ -108,16 +115,12 @@ boxesJP.forEach(box => {
                 otherBox.style.transition = "0.8s";
             }
         });
-        
     });
 
     box.addEventListener("mouseout", () => {
-        startInterval(); // Restart interval on mouse out
+        startInterval(); 
     
-        // Restore random color for the box
-        // let colorsJP = ["#00ad77", "#7ee79c", "#adebd7"];
-        // let randomColor = Math.floor(Math.random() * colorsJP.length);
-        // box.style.backgroundColor = colorsJP[randomColor];
+        box.style.backgroundColor = box.dataset.originalColor; // Restore the original color
         box.style.zIndex = ""; 
 
         // Reset opacity for content in the hovered box
@@ -145,7 +148,7 @@ boxesJP.forEach(box => {
             letter.style.color = "black";
             letter.style.opacity = "1";
             letter.style.transition = "0.8s";
-        })
+        });
 
         // Restore opacity for numbers in all other boxes
         boxesJP.forEach(otherBox => {
@@ -161,7 +164,6 @@ boxesJP.forEach(box => {
     });
 });
 
-// Start the interval initially
 startInterval();
 
 

@@ -81,7 +81,7 @@ img {
 }
 
 .img-box:hover {
-    background-color: transparent;
+    /* background-color: transparent; */
     transition: 0.8s;
     transform: scale(1.9);
     border-radius: 100px;
