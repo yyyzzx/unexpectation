@@ -138,7 +138,7 @@ boxesJP.forEach(box => {
 
         numbers.forEach(number => {
             number.style.opacity = "1"; // Ensure opacity is set back to 1
-            number.style.fontSize = "13pt"; 
+            number.style.fontSize = "16pt"; 
             number.style.padding = "5px 3px";
             number.style.transition = "0.8s";
         });
