@@ -71,8 +71,8 @@ img {
 
 .img-box p {
     font-family: "Diatype";
-    font-size: 0.45vw;
-    line-height: 0.72vw;
+    font-size: 5pt;
+    line-height: 6pt;
     opacity: 0;
 }
 
