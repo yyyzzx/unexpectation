@@ -33,7 +33,7 @@ body {
 .heading div {
     position: relative;
     font-family: "DiatypeMono";
-    font-size: 10vw;
+    font-size: 5vw;
     width: 10vw;
     height: fit-content;
     display: flex;

@@ -53,11 +53,10 @@ function updateTime() {
 
     for (let letter of letters) {
         let randomWeight = 200 + Math.random() * (700 - 200); 
-        // let randomSlant = -15 + Math.random() * 15;
-        let randomSize = 5 + Math.random() * (10 - 5);
+        let randomSize = 0.8 + Math.random() * (3.2 - 0.8);
 
         letter.style.fontVariationSettings = "'wght'" + randomWeight;
-        letter.style.fontSize = randomSize + "vw";
+        letter.style.transform = "scale(" + randomSize + ")";
         letter.style.transition = "2s";
     }
 }
