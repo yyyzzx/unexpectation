@@ -93,7 +93,7 @@ boxesJP.forEach(box => {
 
         numbers.forEach(number => {
             number.style.opacity = "1"; // Make numbers visible
-            number.style.fontSize = "0.45vw"; 
+            number.style.fontSize = "7pt"; 
             number.style.padding = "0";
             number.style.transition = "0.8s";
         });
